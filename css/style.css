@@ -1,115 +1,110 @@
 :root {
-  --primary: #b6895b;
-  --bg: #010101;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
+  --pink: #f14e95;
+  --bg: #0c0c0c;
+  --shadow: 0 2px 2px rgba(0 0 0 / 0.5);
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--bg);
-  color: #fff;
+  font-size: 1.2rem;
+  font-family: "Work Sans", sans-serif;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 100%;
-  padding: 1.4rem 7%;
-  background-color: rgba(1, 1, 1, 0.8);
-  border-bottom: 1px solid #925f2c;
-  position: fixed;
+.hero::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-image: url(bg.png);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
-.navbar .navbar-logo {
-  font-size: 2rem;
-  font-weight: 700;
+.hero {
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero h1,
+.hero h3,
+.hero p {
+  text-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-family: "Caveat", cursive;
+  font-size: 4rem;
+}
+
+.hero h3 {
+  font-family: "Edu TAS Beginner", cursive;
+  font-size: 3rem;
+}
+
+.hero p {
+  font-family: "Edu TAS Beginner", cursive;
+  font-size: 1.4rem;
+}
+
+.hero a {
   color: #fff;
+  background-color: #938676;
 }
 
-.navbar .navbar-logo span {
-  color: var(--primary);
-  font-style: italic;
+.hero a:hover {
+  background-color: #fff;
+  color: #938676;
 }
 
-.navbar .navbar-nav a {
-  color: #fff;
-  display: inline-block;
-  font-size: 1.2rem;
-  margin: 0rem 1rem;
-}
-
-.navbar .navbar-nav a:hover {
-  color: var(--primary);
-}
-
-.navbar .navbar-nav a::after {
-  content: "";
-  display: block;
-  padding-bottom: 0.5rem;
-  border-bottom: 0.1rem solid var(--primary);
-  transform: scaleX(0);
-  transition: 0.2s linear;
-}
-
-.navbar .navbar-nav a:hover::after {
-  transform: scaleX(0.5);
-}
-
-.navbar .navbar-extra a {
-  color: #fff;
-  margin: 0rem 0.5rem;
-}
-
-.navbar .navbar-extra a:hover {
-  color: var(--primary);
-}
-
-#menu {
-  display: none;
-}
-
-/*media queris*/
-/*Laptop*/
-@media (max-width: 1366px) {
+/* Media Query*/
+/*laptop*/
+@media (max-width: 992px) {
   html {
     font-size: 75%;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(bg.png);
+      background-position: center;
+      z-index: -1;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+    }
   }
 }
-
 /*mobile*/
-@media (max-width: 450px) {
+@media (max-width: 576px) {
   html {
-    font-size: 55%;
-  }
+    font-size: 50%;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(bg2.png);
+      background-position: center;
+      background-size: 500px;
+      z-index: -1;
+    }
 
-  #menu {
-    display: inline-block;
-  }
-
-  .navbar .navbar-nav {
-    position: absolute;
-    top: 100%;
-    right: -100%;
-    background-color: #fff;
-    width: 30rem;
-    height: 100vh;
-  }
-
-  .navbar .navbar-nav.active {
-    right: 0;
+    .hero {
+      position: relative;
+      min-height: 100vh;
+    }
+    .mynavbar .nav-link {
+      font-size: 2rem;
+      text-align: center;
+    }
   }
 }
